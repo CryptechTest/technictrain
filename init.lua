@@ -72,9 +72,7 @@ advtrains.register_wagon("technictrain_wagon_charger", {
 		"list[current_player;main;0,5;8,4;]"..
 		"listring["..invname..";src]"..
 		"listring[current_player;main]"..
-			"list["..invname..";fuel;5,1;1,1;]"
-
-		
+			"list["..invname..";fuel;5,1;1,1;]"		
 	end,
 	inventory_list_sizes = {
 		fuel = 1,
@@ -82,3 +80,13 @@ advtrains.register_wagon("technictrain_wagon_charger", {
 	},
 	custom_on_step = charger_step,
 }, S("Charger Wagon"), "technictrain_wagon_charger_inv.png")
+
+
+minetest.register_craft({
+	output = 'advtrains:technictrain_wagon_charger',
+	recipe = {
+		{'default:copper_ingot', 'default:copper_ingot', 'default:copper_ingot'},
+		{'technic:mv_generator', 'default:junglewood', 'technic:mv_battery_box0'},
+		{'advtrains:wheel', '', 'advtrains:wheel'},
+	},
+})
