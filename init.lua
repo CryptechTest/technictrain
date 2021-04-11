@@ -63,6 +63,10 @@ advtrains.register_wagon("technictrain_wagon_charger", {
 	get_inventory = function (self) return minetest.get_inventory({type="detached", name="advtrains_wgn_"..self.id}) end,
 	get_inventory_formspec = function(self, pname, invname)
 		local data = advtrains.wagons[self.id]
+		local prop = ""
+		if data.owner==pname then
+			prop = "button_exit[0,9;4,1;prop;"..S("Wagon properties").."]"
+		end
 		return "size[8,11]"..
 		"list["..invname..";src;3,1;1,1;]"..
 		"image[4,1;1,1;technic_battery_reload.png]"..
@@ -74,7 +78,8 @@ advtrains.register_wagon("technictrain_wagon_charger", {
 			"listring[current_player;main]"..
 			"listring["..invname..";fuel]"..
 			"listring[current_player;main]"..
-			"list["..invname..";fuel;5,1;1,1;]"		
+			"list["..invname..";fuel;5,1;1,1;]"..prop
+			
 	end,
 	inventory_list_sizes = {
 		fuel = 1,
