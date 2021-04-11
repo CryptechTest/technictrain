@@ -71,7 +71,9 @@ advtrains.register_wagon("technictrain_wagon_charger", {
 		"label[5,0;"..S("Generator Fuel").."]"..
 		"list[current_player;main;0,5;8,4;]"..
 		"listring["..invname..";src]"..
-		"listring[current_player;main]"..
+			"listring[current_player;main]"..
+			"listring["..invname..";fuel]"..
+			"listring[current_player;main]"..
 			"list["..invname..";fuel;5,1;1,1;]"		
 	end,
 	inventory_list_sizes = {
